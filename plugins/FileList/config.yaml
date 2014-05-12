@@ -1,0 +1,82 @@
+id: filelist
+key: MT::Plugin::FileList
+name: FileList
+version: 0.3
+description: <MT_TRANS phrase='description of FileList'>
+doc_link: http://www.allianceport.jp
+author_name: Takuji Tokiwa
+author_link: http://www.allianceport.jp/
+l10n_class: FileList::L10N
+schema_version: 0.3
+applications:
+    cms:
+        menus:
+            fileinfo:
+                permission: administer
+                system_permission: administer
+                label: FileInfo
+                order: 1000
+            fileinfo:list:
+                label: FileInfo
+                order: 101
+                view:
+                    - system
+                    - website
+                    - blog
+                mode: list
+                args:
+                    _type: fileinfo
+                condition: sub { return 1 }
+        methods:
+            file_list_file_view: $FileList::FileList::Plugin::file_list_file_view
+listing_screens:
+    fileinfo:
+        primary: file_path
+        screen_label: FileInfo
+        object_label: FileInfo
+        object_label_plural: fileinfo
+        default_sort_key: id
+        view:
+            - system
+            - website
+            - blog
+        scope_mode: wide
+        condition: sub { return 1 }
+list_properties:
+    fileinfo:
+        id:
+            auto: 1
+            label: ID
+            order: 10
+            display: force
+            default_sort_order: descend
+        archive_type:
+            auto: 1
+            label: ArchiveType
+            order: 11
+            display: force
+            html: $FileList::FileList::Plugin::file_list_archive_type
+        file_path:
+            auto: 1
+            label: FilePath
+            order: 12
+            display: force
+            html: $FileList::FileList::Plugin::file_list_view_link
+        url:
+            auto: 1
+            label: URL
+            order: 13
+            display: force
+            html: $FileList::FileList::Plugin::file_list_publish_url_link
+        template_id:
+            auto: 1
+            label: Template Name
+            order: 14
+            display: force
+            html: $FileList::FileList::Plugin::file_list_template_link
+        entry_id:
+            auto: 1
+            label: Entry Title
+            order: 14
+            display: force
+            html: $FileList::FileList::Plugin::file_list_entry_link
