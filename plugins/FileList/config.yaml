@@ -1,13 +1,13 @@
 id: filelist
 key: MT::Plugin::FileList
 name: FileList
-version: 0.3
+version: 0.4
 description: <MT_TRANS phrase='description of FileList'>
 doc_link: http://www.allianceport.jp
 author_name: Takuji Tokiwa
 author_link: http://www.allianceport.jp/
 l10n_class: FileList::L10N
-schema_version: 0.3
+schema_version: 0.4
 applications:
     cms:
         menus:

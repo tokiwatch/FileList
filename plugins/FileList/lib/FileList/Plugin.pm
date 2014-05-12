@@ -79,7 +79,6 @@ sub file_list_view_link {
     my $pub_mode = $template_map->{'column_values'}->{'build_type'};
     my $html;
     if ($pub_mode eq '3') {
-        MT->log({message=>$pub_mode});
         $html = MT->translate('Dynamic Publishing');
     } else {
         my $admincgipath = $app->config->AdminCGIPath;
